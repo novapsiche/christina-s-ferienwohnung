@@ -1,0 +1,20 @@
+/**
+ * @file style.css
+ * @description Custom CSS rules for animations and specific component states.
+ */
+
+/* 1. Mobile Menu Animation */
+#mobile-menu {
+    transition: max-height 0.3s ease-in-out;
+    overflow: hidden;
+    max-height: 0;
+}
+
+#mobile-menu.open {
+    max-height: 300px;
+}
+
+/* 2. Floorplan Interactivity Cue */
+#floorplan-container {
+    cursor: pointer;
+}

@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attico Garda | Appartamento Vacanze ad Arco</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'light-background': '#FFFBE9',
+                        'light-bg-alt': '#F8F4E1',
+                        'light-card': '#E3CAA5',
+                        'light-text': '#1F2937',
+                        'light-accent': '#AD8B73',
+                        'dark-background': '#222831',
+                        'dark-bg-alt': '#2A3038',
+                        'dark-card': '#393E46',
+                        'dark-text': '#F9FAFB',
+                        'dark-accent': '#948979',
+                        'dark-card-text': '#AD8B73'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-light-background text-light-text dark:bg-dark-background dark:text-dark-text">
+
+    <!-- HEADER (invariato) -->
+    <header class="sticky top-0 z-50 bg-light-background dark:bg-dark-background shadow-lg">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-light-text dark:text-dark-text"
+                    viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M12 2L2 12h3v8h6v-6h2v6h6v-8h3L12 2zm0 3.92L18.4 12H5.6L12 5.92zM12 10a2 2 0 100-4 2 2 0 000 4z" />
+                    <path d="M12 18a6 6 0 100-12 6 6 0 010 12zM12 8a4 4 0 110 8 4 4 0 010-8z" />
+                </svg>
+                <span id="brand-name" class="text-2xl font-bold text-light-text dark:text-dark-text">Christina's
+                    Ferienwohnung</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-2">
+                <button id="theme-toggle"
+                    class="p-2 rounded-full text-light-text dark:text-dark-text hover:bg-light-bg-alt dark:hover:bg-dark-card"
+                    aria-label="Toggle dark mode"><svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6"
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg><svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg></button>
+                <div class="relative">
+                    <button type="button"
+                        class="p-2 rounded-full text-light-text dark:text-dark-text hover:bg-light-bg-alt dark:hover:bg-dark-card flex items-center"
+                        id="language-menu-button"><span id="current-lang-text" class="font-medium">IT</span><svg
+                            xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20"
+                            fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                clip-rule="evenodd" />
+                        </svg></button>
+                    <div id="language-menu"
+                        class="origin-top-right absolute right-0 mt-2 w-28 rounded-md shadow-lg bg-white dark:bg-dark-card ring-1 ring-black ring-opacity-5 hidden">
+                        <div class="py-1"><a href="index.html" id="lang-it"
+                                class="dropdown-item text-light-text dark:text-dark-text block px-4 py-2 text-sm hover:bg-light-bg-alt dark:hover:bg-dark-background">Italiano</a><a
+                                href="en.html" id="lang-en"
+                                class="dropdown-item text-light-text dark:text-dark-text block px-4 py-2 text-sm hover:bg-light-bg-alt dark:hover:bg-dark-background">English</a><a
+                                href="de.html" id="lang-de"
+                                class="dropdown-item text-light-text dark:text-dark-text block px-4 py-2 text-sm hover:bg-light-bg-alt dark:hover:bg-dark-background">Deutsch</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <button type="button"
+                        class="p-2 rounded-full text-light-text dark:text-dark-text hover:bg-light-bg-alt dark:hover:bg-dark-card"
+                        id="main-menu-button"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="4" y1="12" x2="20" y2="12"></line>
+                            <line x1="4" y1="6" x2="20" y2="6"></line>
+                            <line x1="4" y1="18" x2="20" y2="18"></line>
+                        </svg></button>
+                    <div id="main-menu"
+                        class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white dark:bg-dark-card ring-1 ring-black ring-opacity-5 hidden">
+                        <div class="py-1"><a href="#details"
+                                class="block px-4 py-2 text-sm text-light-text dark:text-dark-text hover:bg-light-bg-alt dark:hover:bg-dark-background">Appartamento</a><a
+                                href="#prices"
+                                class="block px-4 py-2 text-sm text-light-text dark:text-dark-text hover:bg-light-bg-alt dark:hover:bg-dark-background">Prezzi</a><a
+                                href="#location"
+                                class="block px-4 py-2 text-sm text-light-text dark:text-dark-text hover:bg-light-bg-alt dark:hover:bg-dark-background">Zona
+                                e Info
+                                Zona</a><a href="#gallery"
+                                class="block px-4 py-2 text-sm text-light-text dark:text-dark-text hover:bg-light-bg-alt dark:hover:bg-dark-background">Galleria</a><a
+                                href="#contact"
+                                class="block px-4 py-2 text-sm text-light-text dark:text-dark-text hover:bg-light-bg-alt dark:hover:bg-dark-background">Contatti</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button id="menu-toggle" class="md:hidden text-light-text dark:text-dark-text"><svg
+                    xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg></button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-light-background dark:bg-dark-background"><a href="#details"
+                class="block px-4 py-2 text-light-text dark:text-dark-text hover:bg-light-bg-alt dark:hover:bg-dark-card">Appartmento</a><a
+                href="#prices"
+                class="block px-4 py-2 text-light-text dark:text-dark-text hover:bg-light-bg-alt dark:hover:bg-dark-card">Prezzi</a><a
+                href="#location"
+                class="block px-4 py-2 text-light-text dark:text-dark-text hover:bg-light-bg-alt dark:hover:bg-dark-card">Zona
+                e Info
+                Zona</a><a href="#gallery"
+                class="block px-4 py-2 text-light-text dark:text-dark-text hover:bg-light-bg-alt dark:hover:bg-dark-card">Galleria</a><a
+                href="#contact"
+                class="block px-4 py-2 text-light-text dark:text-dark-text hover:bg-light-bg-alt dark:hover:bg-dark-card">Contatti</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO SECTION (invariato) -->
+        <section id="hero">
+            <div class="relative h-screen overflow-hidden">
+                <video autoplay loop muted playsinline class="absolute z-0 w-full h-full object-cover dark:hidden">
+                    <source src="../Media/day-video.mp4" type="video/mp4">
+                </video>
+                <video autoplay loop muted playsinline
+                    class="absolute z-0 w-full h-full object-cover hidden dark:block">
+                    <source src="../Media/day-video.mp4" type="video/mp4">
+                </video>
+                <div class="absolute inset-0 bg-black opacity-40 z-5"></div>
+                <div class="relative z-10 h-full flex items-center justify-center text-center text-white px-4">
+                    <div>
+                        <h1 class="text-5xl lg:text-7xl font-bold">Dove l'orizzonte è di casa</h1>
+                        <p class="mt-4 text-xl lg:text-3xl font-bold">Un'oasi di tranquillità tra Arco e Riva del Garda.
+                        </p>
+                        <div class="mt-8 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                            <a href="#details"
+                                class="inline-block px-8 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-xl hover:bg-blue-600 transition-colors duration-300">Scopri
+                                di più</a><a href="#contact"
+                                class="inline-block px-8 py-3 bg-white text-blue-600 font-semibold rounded-lg shadow-xl hover:bg-gray-100 transition-colors duration-300">Verifica
+                                Disponibilità</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- APARTMENT DETAILS SECTION (CORRECTED AND IMPROVED) -->
+        <section id="details" class="py-20 bg-light-background dark:bg-dark-background">
+            <div class="container mx-auto px-4">
+
+                <h2 class="text-4xl font-bold text-center text-light-accent dark:text-dark-text">Spazio, Luce e
+                    Panorama: Il Tuo Rifugio Privato</h2>
+
+                <div class="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+
+                    <!-- Colonna Sinistra: Dotazioni -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-light-text dark:text-dark-text mb-6">Dotazioni Principali
+                        </h3>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+
+                            <!-- Box con FIX per il colore del testo in dark mode -->
+                            <div
+                                class="bg-light-card dark:bg-dark-card p-4 rounded-lg shadow-md text-center flex flex-col items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="h-8 w-8 text-light-accent dark:text-dark-text mb-2" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071a10 10 0 0114.142 0M1.393 9.393a15 15 0 0121.214 0" />
+                                </svg>
+                                <!-- FIX: Aggiunta la classe 'dark:text-dark-text' per la leggibilità -->
+                                <span class="text-sm font-semibold text-light-text dark:text-dark-text">Wi-Fi</span>
+                            </div>
+                            <div
+                                class="bg-light-card dark:bg-dark-card p-4 rounded-lg shadow-md text-center flex flex-col items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="h-8 w-8 text-light-accent dark:text-dark-text mb-2" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                </svg>
+                                <span
+                                    class="text-sm font-semibold text-light-text dark:text-dark-text">Ventilatori</span>
+                            </div>
+                            <div
+                                class="bg-light-card dark:bg-dark-card p-4 rounded-lg shadow-md text-center flex flex-col items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="h-8 w-8 text-light-accent dark:text-dark-text mb-2" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                                </svg>
+                                <span class="text-sm font-semibold text-light-text dark:text-dark-text">Cucina</span>
+                            </div>
+                            <div
+                                class="bg-light-card dark:bg-dark-card p-4 rounded-lg shadow-md text-center flex flex-col items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="h-8 w-8 text-light-accent dark:text-dark-text mb-2" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10l2-2h8a1 1 0 001-1z" />
+                                </svg>
+                                <span
+                                    class="text-sm font-semibold text-light-text dark:text-dark-text">Parcheggio</span>
+                            </div>
+                            <div
+                                class="bg-light-card dark:bg-dark-card p-4 rounded-lg shadow-md text-center flex flex-col items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="h-8 w-8 text-light-accent dark:text-dark-text mb-2" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
+                                <span class="text-sm font-semibold text-light-text dark:text-dark-text">TV
+                                    Satellitare</span>
+                            </div>
+                            <div
+                                class="bg-light-card dark:bg-dark-card p-4 rounded-lg shadow-md text-center flex flex-col items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="h-8 w-8 text-light-accent dark:text-dark-text mb-2" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M3 4a1 1 0 011-1h16a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm2 2v8h14V6H5zm2 2h2v2H7V8zm4 0h2v2h-2V8z" />
+                                </svg>
+                                <span
+                                    class="text-sm font-semibold text-light-text dark:text-dark-text">Lavastoviglie</span>
+                            </div>
+                            <div
+                                class="bg-light-card dark:bg-dark-card p-4 rounded-lg shadow-md text-center flex flex-col items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="h-8 w-8 text-light-accent dark:text-dark-text mb-2" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M9 9l3 3m0 0l3-3m-3 3v6m-6 3h12a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
+                                <span class="text-sm font-semibold text-light-text dark:text-dark-text">Ascensore</span>
+                            </div>
+                            <div
+                                class="bg-light-card dark:bg-dark-card p-4 rounded-lg shadow-md text-center flex flex-col items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="h-8 w-8 text-light-accent dark:text-dark-text mb-2" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 4h5m-5 4h5m-5-8h5" />
+                                </svg>
+                                <span class="text-sm font-semibold text-light-text dark:text-dark-text">Terrazza
+                                    70m²</span>
+                            </div>
+                            <div
+                                class="bg-light-card dark:bg-dark-card p-4 rounded-lg shadow-md text-center flex flex-col items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="h-8 w-8 text-light-accent dark:text-dark-text mb-2" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M15 11v6a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-6" />
+                                    <path d="M15 7a2 2 0 0 1-2-2h- 경쟁-2a2 2 0 0 1-2 2v4h6v-4Z" />
+                                    <path d="M4 11h16" />
+                                    <path d="M4 19h16" />
+                                </svg>
+                                <span class="text-sm font-semibold text-light-text dark:text-dark-text">Barbecue a
+                                    Gas</span>
+                            </div>
+                            <div
+                                class="bg-light-card dark:bg-dark-card p-4 rounded-lg shadow-md text-center flex flex-col items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="h-8 w-8 text-light-accent dark:text-dark-text mb-2" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M2 17a1 1 0 0 1 1-1h18a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-2Z" />
+                                    <path d="M12 4c-1.5 0-3 1.5-3 3v2h6V7c0-1.5-1.5-3-3-3Z" />
+                                    <path d="M11 12v2.5" />
+                                    <path d="M14 12v2.5" />
+                                    <path d="M8 12v2.5" />
+                                </svg>
+                                <span class="text-sm font-semibold text-light-text dark:text-dark-text">Stufa a
+                                    Legna</span>
+                            </div>
+                            <div
+                                class="bg-light-card dark:bg-dark-card p-4 rounded-lg shadow-md text-center flex flex-col items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="h-8 w-8 text-light-accent dark:text-dark-text mb-2" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M14.5 9.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
+                                    <path d="M5 21v-3.5a2.5 2.5 0 0 1 5 0V21" />
+                                    <path d="M14 21v-1.5a2.5 2.5 0 0 0-5 0V21" />
+                                    <path d="M10 17.5V15l-3-3 4-4 4 4-3 3v2.5" />
+                                    <path d="M18.5 14.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
+                                </svg>
+                                <span class="text-sm font-semibold text-light-text dark:text-dark-text">2
+                                    Biciclette</span>
+                            </div>
+                            <div
+                                class="bg-light-card dark:bg-dark-card p-4 rounded-lg shadow-md text-center flex flex-col items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="h-8 w-8 text-light-accent dark:text-dark-text mb-2" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                </svg>
+                                <span class="text-sm font-semibold text-light-text dark:text-dark-text">Pet
+                                    Friendly</span>
+                            </div>
+                            <div
+                                class="bg-light-card dark:bg-dark-card p-4 rounded-lg shadow-md text-center flex flex-col items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="h-8 w-8 text-light-accent dark:text-dark-text mb-2" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071a10 10 0 0114.142 0M1.393 9.393a15 15 0 0121.214 0" />
+                                </svg>
+                                <!-- FIX: Aggiunta la classe 'dark:text-dark-text' per la leggibilità -->
+                                <span class="text-sm font-semibold text-light-text dark:text-dark-text">Wi-Fi</span>
+                            </div>
+                            <div
+                                class="bg-light-card dark:bg-dark-card p-4 rounded-lg shadow-md text-center flex flex-col items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="h-8 w-8 text-light-accent dark:text-dark-text mb-2" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071a10 10 0 0114.142 0M1.393 9.393a15 15 0 0121.214 0" />
+                                </svg>
+                                <!-- FIX: Aggiunta la classe 'dark:text-dark-text' per la leggibilità -->
+                                <span class="text-sm font-semibold text-light-text dark:text-dark-text">Wi-Fi</span>
+                            </div>
+                            <div
+                                class="bg-light-card dark:bg-dark-card p-4 rounded-lg shadow-md text-center flex flex-col items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="h-8 w-8 text-light-accent dark:text-dark-text mb-2" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071a10 10 0 0114.142 0M1.393 9.393a15 15 0 0121.214 0" />
+                                </svg>
+                                <!-- FIX: Aggiunta la classe 'dark:text-dark-text' per la leggibilità -->
+                                <span class="text-sm font-semibold text-light-text dark:text-dark-text">Wi-Fi</span>
+                            </div>
+                            <div
+                                class="bg-light-card dark:bg-dark-card p-4 rounded-lg shadow-md text-center flex flex-col items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="h-8 w-8 text-light-accent dark:text-dark-text mb-2" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071a10 10 0 0114.142 0M1.393 9.393a15 15 0 0121.214 0" />
+                                </svg>
+                                <!-- FIX: Aggiunta la classe 'dark:text-dark-text' per la leggibilità -->
+                                <span class="text-sm font-semibold text-light-text dark:text-dark-text">Wi-Fi</span>
+                            </div>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Colonna Destra: Planimetria -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-light-text dark:text-dark-text mb-6">Planimetria</h3>
+                        <div id="floorplan-container"
+                            class="relative rounded-lg shadow-md overflow-hidden cursor-pointer group">
+                            <img id="floorplan-image" src="../Media/Immagini/planimetria.png"
+                                alt="Planimetria dell'appartamento, clicca per ingrandire" class="block w-full h-auto">
+                            <div
+                                class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
+                                <p
+                                    class="text-white text-lg font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    Clicca per ingrandire
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-20 max-w-4xl mx-auto">
+                        <div class="accordion-item border-b border-gray-300 dark:border-gray-700">
+                            <button
+                                class="accordion-header w-full text-left p-4 font-semibold text-lg flex justify-between items-center dark:text-dark-text">
+                                <span>Dettagli degli Spazi Interni</span>
+                                <span class="accordion-icon font-bold text-2xl">+</span>
+                            </button>
+                            <div class="accordion-content overflow-hidden max-h-0 transition-all duration-300">
+                                <div class="p-4 text-base dark:text-dark-text prose dark:prose-invert max-w-none">
+                                    <p>Con una superficie totale di 140 m², di cui 70 m² dedicati a un'ampia terrazza
+                                        esposta a
+                                        sud, lo spazio è il vero lusso di questa casa. Ideale per godersi il sole,
+                                        cenare all'aperto
+                                        o semplicemente rilassarsi con una vista incantevole.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- IMPROVEMENT: Il blocco di testo statico è stato trasformato in un Accordion interattivo -->
+                    <div class="mt-20 max-w-4xl mx-auto">
+                        <div class="accordion-item border-b border-gray-300 dark:border-gray-700">
+                            <button
+                                class="accordion-header w-full text-left p-4 font-semibold text-lg flex justify-between items-center dark:text-dark-text">
+                                <span>Dettagli degli Spazi Interni</span>
+                                <span class="accordion-icon font-bold text-2xl">+</span>
+                            </button>
+                            <div class="accordion-content overflow-hidden max-h-0 transition-all duration-300">
+                                <div class="p-4 text-base dark:text-dark-text prose dark:prose-invert max-w-none">
+                                    <p>L'appartamento è composto da un soggiorno con un grande divano angolare, TV
+                                        satellitare, lettore DVD e CD e accesso Wi-Fi. Dispone di una cucina attrezzata
+                                        di
+                                        alta qualità (con lavastoviglie, forno e frigorifero con congelatore) con una
+                                        zona
+                                        pranzo per 6 persone, una camera con un grande letto alla francese, una seconda
+                                        camera con un letto alla francese più piccolo e cabina armadio, e un bagno con
+                                        ampia
+                                        doccia, bidet, WC e finestra. Nelle camere da letto e nella cucina abitabile
+                                        sono
+                                        installati ventilatori a soffitto.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-b border-gray-300 dark:border-gray-700">
+                            <button
+                                class="accordion-header w-full text-left p-4 font-semibold text-lg flex justify-between items-center dark:text-dark-text">
+                                <span>La Terrazza: il Tuo Salotto all'Aperto</span>
+                                <span class="accordion-icon font-bold text-2xl">+</span>
+                            </button>
+                            <div class="accordion-content overflow-hidden max-h-0 transition-all duration-300">
+                                <div class="p-4 text-base dark:text-dark-text prose dark:prose-invert max-w-none">
+                                    <p>Sull'ampia terrazza si trovano un gazebo con zona pranzo per 6 persone e un
+                                        barbecue
+                                        a gas. Nonostante ciò, avrete ancora molto spazio per prendere il sole o
+                                        rilassarvi
+                                        sui lettini o sulle sedie. La tenda a vela e il pergolato con viti offrono una
+                                        piacevole ombra. La stufa a legna in ghisa nel soggiorno offre un calore
+                                        accogliente
+                                        e un'atmosfera piacevole durante le stagioni autunnali e invernali.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-b border-gray-300 dark:border-gray-700">
+                            <button
+                                class="accordion-header w-full text-left p-4 font-semibold text-lg flex justify-between items-center dark:text-dark-text">
+                                <span>Cucina e Dotazioni Aggiuntive</span>
+                                <span class="accordion-icon font-bold text-2xl">+</span>
+                            </button>
+                            <div class="accordion-content overflow-hidden max-h-0 transition-all duration-300">
+                                <div class="p-4 text-base dark:text-dark-text prose dark:prose-invert max-w-none">
+                                    <p>La cucina è dotata di tutti gli utensili necessari come stoviglie, posate,
+                                        bicchieri,
+                                        pentole, ecc. Sono inoltre disponibili i seguenti elettrodomestici: Forno a
+                                        microonde, tostapane, macchina per caffè americano (a filtro), macchina per
+                                        caffè
+                                        Nespresso, frullatore a immersione, sbattitore elettrico, macchina per il pane,
+                                        bollitore, grill a contatto. Sono a vostra disposizione due biciclette a 6 marce
+                                        (con lucchetto e pompa), un lettino da viaggio e un seggiolone gratuiti.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+        </section>
+
+        <!-- PRICES & CONDITIONS SECTION (MODIFICATA) -->
+        <section id="prices" class="py-20 bg-light-bg-alt dark:bg-dark-bg-alt">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center text-light-accent dark:text-dark-text">Prezzi e Condizioni
+                </h2>
+                <p class="mt-4 text-lg text-center max-w-3xl mx-auto dark:text-dark-text">Consulta le nostre tariffe
+                    stagionali e le condizioni di soggiorno.</p>
+
+                <!-- NUOVO Price Table Slider -->
+                <div class="mt-16 max-w-xl mx-auto">
+                    <h3 id="price-table-title" class="text-3xl font-bold text-center mb-6 dark:text-dark-text"></h3>
+                    <div class="relative bg-light-card dark:bg-dark-card p-6 rounded-lg shadow-lg">
+
+                        <!-- Tabella 1: Stagione Invernale -->
+                        <div class="price-table">
+                            <table class="w-full text-left">
+                                <thead>
+                                    <tr>
+                                        <th class="p-2">Periodo</th>
+                                        <th class="p-2">Prezzo (2/4 Pers)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="p-2 border-t border-light-accent dark:border-dark-accent">06.01 -
+                                            10.04.2025</td>
+                                        <td class="p-2 border-t border-light-accent dark:border-dark-accent">85/115 €
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-2 border-t border-light-accent dark:border-dark-accent">12.10 -
+                                            18.12.2025</td>
+                                        <td class="p-2 border-t border-light-accent dark:border-dark-accent">85/115 €
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-2 border-t border-light-accent dark:border-dark-accent">06.01 -
+                                            27.03.2026</td>
+                                        <td class="p-2 border-t border-light-accent dark:border-dark-accent">85/115 €
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Tabella 2: Media Stagione (nascosta) -->
+                        <div class="price-table hidden">
+                            <table class="w-full text-left">
+                                <thead>
+                                    <tr>
+                                        <th class="p-2">Periodo</th>
+                                        <th class="p-2">Prezzo (2/4 Pers)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="p-2 border-t border-light-accent dark:border-dark-accent">10.04 -
+                                            27.04.2025</td>
+                                        <td class="p-2 border-t border-light-accent dark:border-dark-accent">90/120 €
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-2 border-t border-light-accent dark:border-dark-accent">27.04 -
+                                            29.05.2025</td>
+                                        <td class="p-2 border-t border-light-accent dark:border-dark-accent">85/115 €
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-2 border-t border-light-accent dark:border-dark-accent">29.05 -
+                                            17.07.2025</td>
+                                        <td class="p-2 border-t border-light-accent dark:border-dark-accent">90/120 €
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-2 border-t border-light-accent dark:border-dark-accent">14.09 -
+                                            12.10.2025</td>
+                                        <td class="p-2 border-t border-light-accent dark:border-dark-accent">90/120 €
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-2 border-t border-light-accent dark:border-dark-accent">27.03 -
+                                            12.04.2026</td>
+                                        <td class="p-2 border-t border-light-accent dark:border-dark-accent">95/125 €
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Tabella 3: Alta Stagione (nascosta) -->
+                        <div class="price-table hidden">
+                            <table class="w-full text-left">
+                                <thead>
+                                    <tr>
+                                        <th class="p-2">Periodo</th>
+                                        <th class="p-2">Prezzo (2/4 Pers)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="p-2 border-t border-light-accent dark:border-dark-accent">17.07 -
+                                            14.09.2025</td>
+                                        <td class="p-2 border-t border-light-accent dark:border-dark-accent">95/135 €
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-2 border-t border-light-accent dark:border-dark-accent">18.12 -
+                                            06.01.2026</td>
+                                        <td class="p-2 border-t border-light-accent dark:border-dark-accent">100/140 €
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-2 border-t border-light-accent dark:border-dark-accent">16.07 -
+                                            13.09.2026</td>
+                                        <td class="p-2 border-t border-light-accent dark:border-dark-accent">100/140 €
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Pulsanti di Navigazione -->
+                        <button id="prev-price-btn"
+                            class="absolute top-1/2 -translate-y-1/2 left-[-15px] sm:left-[-50px] bg-white/80 dark:bg-black/80 rounded-full p-2 shadow-lg hover:bg-white dark:hover:bg-black transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800 dark:text-gray-200"
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+                        <button id="next-price-btn"
+                            class="absolute top-1/2 -translate-y-1/2 right-[-15px] sm:right-[-50px] bg-white/80 dark:bg-black/80 rounded-full p-2 shadow-lg hover:bg-white dark:hover:bg-black transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800 dark:text-gray-200"
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mt-16 max-w-4xl mx-auto bg-light-card dark:bg-dark-card p-8 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold mb-4 dark:text-dark-text">Dettagli e Costi Extra</h3>
+                    <ul class="list-disc list-inside space-y-2 dark:text-dark-text">
+                        <li><strong>Pulizia finale:</strong> da 60 a 70 Euro a seconda del numero di persone (+ 20 Euro
+                            per cane).</li>
+                        <li><strong>Costo Wi-Fi:</strong> 1€ al giorno.</li>
+                        <li><strong>Tassa di soggiorno:</strong> 1€ a persona al giorno (bambini sotto i 14 anni
+                            esenti).</li>
+                        <li><strong>Bambini 0-5 anni:</strong> soggiorno gratuito (5€ per eventuale biancheria).</li>
+                        <li><strong>Bambini 6-12 anni:</strong> 10€ a notte.</li>
+                        <li><strong>Dai 13 anni in su:</strong> 15€ a notte (20€ in alta stagione).</li>
+                        <li><strong>Soggiorno minimo:</strong> 3 notti (7 notti in alta stagione e a Natale).</li>
+                    </ul>
+                    <h3 class="text-2xl font-bold mt-8 mb-4 dark:text-dark-text">Condizioni di Affitto</h3>
+                    <p class="dark:text-dark-text">L'acconto/deposito cauzionale di 150 € deve essere versato entro 14
+                        giorni dalla prenotazione. Il saldo finale per l'appartamento è da pagare di persona all'arrivo.
+                        L'acconto verrà trattenuto come deposito cauzionale e sarà rimborsato il giorno della partenza,
+                        dopo un'ispezione dell'appartamento, a condizione che non siano stati riscontrati danni.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- LOCATION & INFO SECTION (invariato) -->
+        <section id="location" class="py-20 bg-light-background dark:bg-dark-background">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center text-light-accent dark:text-dark-text">La Zona e Informazioni
+                    Utili</h2>
+                <div class="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div>
+                        <div id="map-streetview-container"
+                            class="relative rounded-lg shadow-lg overflow-hidden h-96 lg:h-full">
+                            <iframe id="google-map"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10161.77150583872!2d10.872956831136836!3d45.90330722521621!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478211700f771569%3A0x3777c2106003ecc!2sChristina's%20Ferienwohnung%20am%20Gardasee!5e0!3m2!1sen!2sit!4v1755688891812!5m2!1sen!2sit"
+                                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <iframe id="street-view" class="hidden"
+                                src="https://www.google.com/maps/embed?pb=!4v1755688797378!6m8!1m7!1sDdvhbJi3WvQA8aoOawmgZw!2m2!1d45.90891245470884!2d10.87164464727414!3f287.5640193505519!4f-8.480103419223568!5f0.7820865974627469"
+                                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <button id="show-streetview-btn"
+                                class="absolute top-1/2 -translate-y-1/2 right-3 bg-white/80 dark:bg-black/80 rounded-full p-2 shadow-lg hover:bg-white dark:hover:bg-black transition"><svg
+                                    xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800 dark:text-gray-200"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg></button>
+                            <button id="show-map-btn"
+                                class="absolute top-1/2 -translate-y-1/2 left-3 bg-white/80 dark:bg-black/80 rounded-full p-2 shadow-lg hover:bg-white dark:hover:bg-black transition hidden"><svg
+                                    xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800 dark:text-gray-200"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 19l-7-7 7-7" />
+                                </svg></button>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold mb-4 dark:text-dark-text">Vivere Arco e il Lago di Garda</h3>
+                        <p class="mb-8 dark:text-dark-text">La cittadina di Arco, con circa 17.000 abitanti, si trova a
+                            circa 5 km a nord del Lago di Garda, immersa in un paesaggio meraviglioso. Questa località è
+                            nota per il suo clima mite e mediterraneo, la sua aria sana e pulita e l'ampia varietà di
+                            opportunità sportive. Una splendida passeggiata tra gli uliveti vi condurrà alle rovine del
+                            Castello di Arco, da cui si gode una magnifica vista.</p>
+                        <div id="info-accordion">
+                            <div class="accordion-item border-b border-gray-300 dark:border-gray-700"><button
+                                    class="accordion-header w-full text-left p-4 font-semibold text-lg flex justify-between items-center dark:text-dark-text"><span>Emergenze
+                                        e Servizi Sanitari</span><span
+                                        class="accordion-icon font-bold text-2xl">+</span></button>
+                                <div class="accordion-content overflow-hidden max-h-0 transition-all duration-300">
+                                    <div class="p-4 text-sm dark:text-dark-text space-y-3">
+                                        <p><strong>Numeri Emergenza:</strong><br>112 (Polizia/Carabinieri), 115 (Vigili
+                                            del Fuoco), 118 (Ambulanza).</p>
+                                        <p><strong>Ospedale di Arco:</strong><br>Via Capitelli 48, Arco - <a
+                                                href="tel:+390464582222"
+                                                class="hover:underline text-blue-600 dark:text-blue-400">+39 0464
+                                                582222</a></p>
+                                        <p><strong>Ospedale di Rovereto:</strong><br>Corso Verona 4, Rovereto - <a
+                                                href="tel:+390464403111"
+                                                class="hover:underline text-blue-600 dark:text-blue-400">+39 0464
+                                                403111</a></p>
+                                        <p><strong>Guardia Medica Turistica (Luglio/Agosto):</strong><br>Largo Marconi
+                                            2, Riva del Garda. Lun-Ven 10-13. <a href="tel:+393387828781"
+                                                class="hover:underline text-blue-600 dark:text-blue-400">+39 338
+                                                7828781</a>. Fuori orario: <a href="tel:+390464582629"
+                                                class="hover:underline text-blue-600 dark:text-blue-400">+39 0464
+                                                582629</a>. Tariffe: 20€ ambulatorio, 30€ domicilio.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item border-b border-gray-300 dark:border-gray-700"><button
+                                    class="accordion-header w-full text-left p-4 font-semibold text-lg flex justify-between items-center dark:text-dark-text"><span>Medici
+                                        di Lingua Tedesca</span><span
+                                        class="accordion-icon font-bold text-2xl">+</span></button>
+                                <div class="accordion-content overflow-hidden max-h-0 transition-all duration-300">
+                                    <div class="p-4 text-sm dark:text-dark-text space-y-3">
+                                        <p><strong>Dentista Dr. Jan Verhagen:</strong><br>Viale Carducci 6/a, Riva - <a
+                                                href="tel:+390464552532"
+                                                class="hover:underline text-blue-600 dark:text-blue-400">+39 0464
+                                                552532</a></p>
+                                        <p><strong>Dentista Dr. A. Olf Clausen:</strong><br>Viale Roma 4, Riva - <a
+                                                href="tel:+390464552764"
+                                                class="hover:underline text-blue-600 dark:text-blue-400">+39 0464
+                                                552764</a></p>
+                                        <p><strong>Ginecologa Dr. Beate Gritschak:</strong><br>Via Matteotti 64, Torbole
+                                            - <a href="tel:+393403996963"
+                                                class="hover:underline text-blue-600 dark:text-blue-400">+39 340
+                                                3996963</a></p>
+                                        <p><strong>Medico Dr. Heiko Borchert:</strong><br>Viale Rovereto 122, Riva - <a
+                                                href="tel:+393482602408"
+                                                class="hover:underline text-blue-600 dark:text-blue-400">+39 348
+                                                2602408</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item border-b border-gray-300 dark:border-gray-700"><button
+                                    class="accordion-header w-full text-left p-4 font-semibold text-lg flex justify-between items-center dark:text-dark-text"><span>Servizi
+                                        Locali</span><span class="accordion-icon font-bold text-2xl">+</span></button>
+                                <div class="accordion-content overflow-hidden max-h-0 transition-all duration-300">
+                                    <div class="p-4 text-sm dark:text-dark-text space-y-3">
+                                        <p><strong>Farmacia Bettinazzi:</strong> Via Galas 49, Arco.</p>
+                                        <p><strong>Farmacia Redi:</strong> Via Nas 3, Arco.</p>
+                                        <p><strong>Veterinario (Zampiccoli & Lutteri):</strong> Via S. Caterina 97.</p>
+                                        <p><strong>Info Turistiche Arco:</strong> Viale delle Palme 1.</p>
+                                        <p><strong>Info Turistiche Riva:</strong> Largo Medaglie d’Oro 5.</p>
+                                        <p><strong>Sito Web Garda Trentino:</strong> <a
+                                                href="http://www.gardatrentino.it" target="_blank"
+                                                class="hover:underline text-blue-600 dark:text-blue-400">www.gardatrentino.it</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item border-b border-gray-300 dark:border-gray-700"><button
+                                    class="accordion-header w-full text-left p-4 font-semibold text-lg flex justify-between items-center dark:text-dark-text"><span>Trasporti
+                                        e Distanze</span><span
+                                        class="accordion-icon font-bold text-2xl">+</span></button>
+                                <div class="accordion-content overflow-hidden max-h-0 transition-all duration-300">
+                                    <div class="p-4 text-sm dark:text-dark-text space-y-3">
+                                        <p><strong>Stazione Bus Arco:</strong> Piazza Vicenza 5.</p>
+                                        <p><strong>Stazione Rovereto:</strong> 25 km (Bus 332 per Arco).</p>
+                                        <p><strong>Stazione Trento:</strong> 35 km (Bus 205 per Arco).</p>
+                                        <p><strong>Aeroporto Verona (VRN):</strong> 90 km (circa 1 ora di auto).</p>
+                                        <p><strong>Sito Web Trasporti:</strong> <a href="http://www.ttesercizio.it"
+                                                target="_blank"
+                                                class="hover:underline text-blue-600 dark:text-blue-400">www.ttesercizio.it</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALLERY SECTION (invariato) -->
+        <section id="gallery" class="py-20 bg-light-bg-alt dark:bg-dark-bg-alt">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center text-light-accent dark:text-dark-text">Galleria Fotografica
+                </h2>
+                <p class="mt-4 text-lg text-center max-w-3xl mx-auto dark:text-dark-text">Un'anteprima degli splendidi
+                    spazi, della cucina e dei bellissimi panorami.</p>
+                <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div
+                        class="h-64 rounded-lg shadow-lg flex items-center justify-center bg-gray-200 dark:bg-slate-300 transform hover:scale-105 transition-transform duration-300">
+                        <h3 class="text-3xl font-bold text-gray-800">Soggiorno</h3>
+                    </div>
+                    <div
+                        class="h-64 rounded-lg shadow-lg flex items-center justify-center bg-gray-300 dark:bg-slate-400 transform hover:scale-105 transition-transform duration-300">
+                        <h3 class="text-3xl font-bold text-gray-800">Cucina</h3>
+                    </div>
+                    <div
+                        class="h-64 rounded-lg shadow-lg flex items-center justify-center bg-gray-400 dark:bg-slate-500 transform hover:scale-105 transition-transform duration-300">
+                        <h3 class="text-3xl font-bold text-white">Camera da letto</h3>
+                    </div>
+                    <div
+                        class="h-64 rounded-lg shadow-lg flex items-center justify-center bg-gray-500 dark:bg-slate-600 transform hover:scale-105 transition-transform duration-300">
+                        <h3 class="text-3xl font-bold text-white">Bagno</h3>
+                    </div>
+                    <div
+                        class="h-64 rounded-lg shadow-lg flex items-center justify-center bg-gray-600 dark:bg-slate-700 transform hover:scale-105 transition-transform duration-300">
+                        <h3 class="text-3xl font-bold text-white">Terrazza</h3>
+                    </div>
+                    <div
+                        class="h-64 rounded-lg shadow-lg flex items-center justify-center bg-gray-700 dark:bg-slate-800 transform hover:scale-105 transition-transform duration-300">
+                        <h3 class="text-3xl font-bold text-white">Vista</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION (invariato) -->
+        <section id="contact" class="py-20 bg-light-background dark:bg-dark-background">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center text-light-accent dark:text-dark-text">Contattaci</h2>
+                <p class="mt-4 text-lg text-center max-w-3xl mx-auto dark:text-dark-text">Per richieste di disponibilità
+                    o per qualsiasi domanda, compila il modulo o contattaci direttamente.</p>
+                <div class="mt-16 grid grid-cols-1 lg:grid-cols-5 gap-12">
+                    <div class="lg:col-span-3 bg-light-card dark:bg-dark-card p-8 rounded-lg shadow-lg">
+                        <form action="#" method="POST">
+                            <div class="mb-6"><label for="name"
+                                    class="block mb-2 text-sm font-medium dark:text-dark-text">Nome</label><input
+                                    type="text" id="name" name="name"
+                                    class="w-full p-3 rounded-lg bg-white dark:bg-dark-background text-light-text dark:text-dark-text border border-gray-300 dark:border-dark-accent focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    required></div>
+                            <div class="mb-6"><label for="email"
+                                    class="block mb-2 text-sm font-medium dark:text-dark-text">Email</label><input
+                                    type="email" id="email" name="email"
+                                    class="w-full p-3 rounded-lg bg-white dark:bg-dark-background text-light-text dark:text-dark-text border border-gray-300 dark:border-dark-accent focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    required></div>
+                            <div class="mb-6"><label for="message"
+                                    class="block mb-2 text-sm font-medium dark:text-dark-text">Messaggio</label><textarea
+                                    id="message" name="message" rows="5"
+                                    class="w-full p-3 rounded-lg bg-white dark:bg-dark-background text-light-text dark:text-dark-text border border-gray-300 dark:border-dark-accent focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    required></textarea></div>
+                            <div><button type="submit"
+                                    class="w-full px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Invia
+                                    richiesta</button></div>
+                        </form>
+                    </div>
+                    <div class="lg:col-span-2 space-y-8">
+                        <div class="bg-light-card dark:bg-dark-card p-8 rounded-lg shadow-lg">
+                            <h3 class="text-2xl font-bold mb-4 dark:text-dark-text">Informazioni di contatto</h3>
+                            <p class="mb-2 dark:text-dark-text"><strong>Contatto:</strong> Christina Stürzer</p>
+                            <p class="mb-2 dark:text-dark-text"><strong>Cellulare:</strong> <a href="tel:+393803172215"
+                                    class="hover:underline text-blue-600 dark:text-blue-400">+39 380 3172215</a></p>
+                            <p class="mb-2 dark:text-dark-text"><strong>Email:</strong> <a
+                                    href="mailto:info@ferienwohnung-gardasee-arco.com"
+                                    class="hover:underline text-blue-600 dark:text-blue-400">info@ferienwohnung-gardasee-arco.com</a>
+                            </p>
+                            <p class="dark:text-dark-text"><strong>Codice CIN:</strong> IT022006C2H38NCAO6</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER (invariato) -->
+    <footer class="bg-dark-background text-dark-text py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2025 Attico Garda. Tutti i diritti riservati.</p>
+            <p class="text-sm mt-2 opacity-70"><a href="legal.html" class="hover:underline">Note Legali & Privacy</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- MODAL (invariato) -->
+    <div id="floorplan-modal"
+        class="hidden fixed inset-0 z-50 bg-black bg-opacity-80 flex items-center justify-center p-4">
+        <div class="relative max-w-4xl max-h-full"><img id="modal-image" src="" alt="Planimetria ingrandita"
+                class="block max-w-full max-h-[90vh] rounded-lg"><button id="close-modal-btn"
+                class="absolute -top-4 -right-4 h-10 w-10 bg-white dark:bg-dark-card text-black dark:text-dark-text rounded-full shadow-lg flex items-center justify-center text-2xl font-bold">&times;</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
